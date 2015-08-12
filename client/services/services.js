@@ -1,4 +1,4 @@
-angular.module('app.services', [])
+angular.module('app.services', ['firebase'])
 
   .directive('loggedin', [function(){
     return {
@@ -14,6 +14,53 @@ angular.module('app.services', [])
       templateUrl: 'nav/loggedoutnav.html'
     };
   }])
+  .factory('Auth', ['$firebaseAuth',
+    function($firebaseAuth){
+
+      var ref = new Firebase(firebaseAppUrl);
+      var auth = $firebaseAuth(ref);
+
+      var authData = null;
+      var error = null;
+
+      var login = function(email, password){ 
+        return auth.$authWithPassword({// ??
+          email: email,
+          password: password
+        });
+        // .then(function(authData){
+        //   // Do something with authData.uid
+        // }).catch(function(error){
+        //   console.error("Authentication failed:",error);
+        // });
+      };
+
+
+      var logout = function(){
+        auth.$unAuth();
+      };
+
+      var signup = function(email, password){
+        return auth.$createUser({
+          email: email,
+          password: password
+        });
+        // .then(function(userData){
+        //   // user created with userData.id
+        // }).catch(function(error){
+        //   console.log("Signup failed:",error);
+        // })
+      };
+
+      return {
+        // DECIDE WHAT TO RETURN FROM FACTORY!!!
+        auth: auth,
+        login: login,
+        logout: logout,
+        signup: signup
+      };
+    }
+  ]);
   .factory('HttpRequests', ['$http', '$location', function($http, $location){
     
     var signupUser = function(userObject){
