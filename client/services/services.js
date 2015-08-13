@@ -66,7 +66,7 @@ angular.module('app.services', ['firebase'])
     var signupUser = function(user){
       // send to firebase
       // var uid = UID from firebase
-      console.log('user http request sent', JSON.stringify(userObject));
+      console.log('user http request sent', JSON.stringify(user));
       return $http({
         method: 'POST',
         url: hostUrl + '/user',
