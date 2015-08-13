@@ -40,6 +40,17 @@ app.post('/api/user', function(req, res) {
   });
 });
 
+app.get('/api/requests/:uid', function(req, res){
+  // receive uid
+  // return events under uid
+  var uid = req.params.uid;
+  // console.log(req.params.UID);
+  db.getUIDRequests(uid, function(requestsData){
+    console.log("49", requestsData);
+    res.end(JSON.stringify(requestsData));
+  });
+});
+
 app.get('/api/requests', function(req, res){
   // right now get all requests TODO filter requests
   // return object of requests
@@ -59,7 +70,16 @@ app.post('/api/request', function(req, res){
   });
 });
 
-app.get('/api/events/:uid')
+app.get('/api/events/:uid', function(req, res){
+  // receive uid
+  // return events under uid
+  var uid = req.params.uid;
+  // console.log(req.params.UID);
+  db.getUIDEvents(uid, function(eventsData){
+    console.log("79", eventsData);
+    res.end(JSON.stringify(eventsData));
+  });
+});
 
 app.get('/api/events', function(req, res){
   // return all events as an object
