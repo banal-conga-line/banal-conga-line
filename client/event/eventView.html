@@ -26,11 +26,11 @@
 
     <div class="eventsWrapper" ng-filter="search" ng-model="events">
       <div class="eventlist" ng-repeat="event in events | filter:{name:namefilter, neighborhood:neighborhoodfilter, organizer:organizerfilter, hashtags:hashtagfilter}">
-        <div class="eventDate"> {{ event.date }} </div>
+        <div class="eventDate"> {{ event.formatteddate }} </div>
         <div class="eventName"> {{ event.name }} </div>
         <div class="eventNeighborhood"> {{ event.neighborhood }} </div>
         <div class="eventOrganizer">
-          <a class="linktouser" ng-href="{{window.location.origin}}/#/user/{{event.uid}}">Contact organizer!</a>
+          <a class="linktouser" ng-href="{{window.location.origin}}/#/user/{{event.organizer}}">Contact organizer!</a>
         </div>
         <div class="eventHashtags"> {{ event.hashtags.join(' ') }} </div>
       </div>

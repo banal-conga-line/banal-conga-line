@@ -64,7 +64,7 @@
           <th>Hashtags</th>
         </tr>
         <tr class="eventlist" ng-repeat="event in events track by $index">
-          <td> {{ event.date.getFullYear() }}-{{ event.date.getMonth() }}-{{ event.date.getDay() }}</td>
+          <td> {{ event.date.getMonth() }}-{{ event.date.getDay() }}-{{ event.date.getFullYear() }}</td>
           <td> {{ event.name }}</td>
           <td> {{ event.address }}<br><span class="neighborhood">{{ event.neighborhood }}</span></td>
           <td> {{ event.hashtags.join(' ') }}</td>

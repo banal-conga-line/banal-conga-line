@@ -65,11 +65,11 @@ angular.module('app.nav',[])
     HttpRequests.postEvent($scope.ev)
       .then(function(data){
         console.log('event posted', data);
-        $location.path('/events');
+        $location.path('/user');
       })
       .catch(function(err){
         console.log('error posting event', err);
-        $location.path('/events');
+        $location.path('/user');
       });
   };
 

@@ -88,23 +88,20 @@ body {
   max-width: 960px;
   min-width: 500px;
   display: block;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
 
 /*************************************** NAV ***************************************/
-.navbarwrapper {
-    position: fixed;
-    width: 100%;
-}
 .navbar {
   width: 100%;
   height: 50px;
   color: #F2F1EF;
-  position: relative;
+  position: fixed;
   text-align: center;
   /*   display: block; */
   background: #44B3C2;
+  z-index: 100;
 }
 
 .headercompanyname {
@@ -112,8 +109,6 @@ body {
   color: #b8e2e8;
   font-weight: 400;
   font-size: 30px;
-  position: fixed;
-  margin-left: -20px;
 /*   padding: 3px 0 0 0; */
 }
 
@@ -216,11 +211,15 @@ input {
 
 .signupform {
   width: 50%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  top: 60px;
   text-align: center;
   background-color: #F7F7F7;
   border-radius: 8px;
   padding: 10px;
+  position: relative;
+  margin-bottom: 25px;
 }
 
 .signupform input {
@@ -262,8 +261,8 @@ input {
 
 .links {
   margin-bottom: 20%;
-  text-align:left;
-  width: 20px;
+  text-align:center;
+  overflow:hidden;
 }
 
 
@@ -271,15 +270,27 @@ input {
 /*************************************** LOGIN ***************************************/
 
 .loginform {
-  margin-top: 20px;
+  position:relative;
+  margin-top: 60px;
   text-align: center;
   width: 50%;
   background-color: #F7F7F7;
   margin: 0 auto;
   padding: 10px 0;
   border-radius: 8px;
+  top: 60px;
 }
-
+.signupform {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    top: 60px;
+    text-align: center;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+}
 .loginform input {
   width: 30%;
   display: block;
@@ -451,5 +462,4 @@ td, th {
   background-color: #F7F7F7;
 }
 
-}
 
